@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranzo by Farhan — Authorised Mahindra Showroom, Pampore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #ffffff;
+    --bg-alt: #f4f6f9;
+    --panel: #ffffff;
+    --ink: #142235;
+    --ink-dim: #56637a;
+    --ink-faint: #8894a6;
+    --red: #cf2a22;
+    --red-dark: #a5201a;
+    --navy: #142235;
+    --navy-2: #1d3350;
+    --line: #e4e8ee;
+    --line-strong: #c9d0da;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--red); color:#fff; }
+  :focus-visible{ outline:2px solid var(--red); outline-offset:3px; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  h1, h2, h3{ font-family:'Poppins', sans-serif; }
+
+  /* signature thread divider */
+  .thread{
+    height:3px; width:100%;
+    background:linear-gradient(90deg, var(--navy) 0%, var(--red) 50%, var(--navy) 100%);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--navy);
+    color:#c3cbd8;
+    font-size:0.8rem;
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 32px; flex-wrap:wrap; gap:8px 24px;
+  }
+  .topbar-left{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+  .topbar-left span{ display:inline-flex; align-items:center; gap:7px; }
+  .topbar-left svg{ width:13px; height:13px; flex-shrink:0; color:#ef9a95; }
+  .topbar a{ transition:color .2s; }
+  .topbar a:hover{ color:#fff; }
+  .topbar-right{ font-weight:500; color:#ef9a95; letter-spacing:0.02em; }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .brand{
+    font-family:'Poppins', sans-serif; font-weight:700; font-size:1.45rem; color:var(--navy);
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .brand .name-highlight{
+    background:var(--red);
+    color:#fff;
+    padding:4px 11px 5px;
+    border-radius:5px;
+    letter-spacing:0.01em;
+  }
+  .brand .by-farhan{ color:var(--ink-dim); font-weight:500; font-size:0.95rem; }
+  .nav-links{ display:flex; gap:32px; font-size:0.92rem; color:var(--ink-dim); font-weight:500; }
+  .nav-links a{ transition:color .2s; }
+  .nav-links a:hover{ color:var(--navy); }
+  .nav-actions{ display:flex; gap:12px; align-items:center; }
+  .nav-call{ font-size:0.88rem; color:var(--ink-dim); font-weight:500; }
+  .nav-call:hover{ color:var(--navy); }
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:12px 22px; font-size:0.9rem; font-weight:600;
+    border-radius:4px; transition:all .2s; border:1.5px solid transparent;
+    font-family:'Inter', sans-serif;
+    cursor:pointer;
+  }
+  .btn-primary{ background:var(--red); color:#fff; }
+  .btn-primary:hover{ background:var(--red-dark); }
+  .btn-ghost{ border-color:var(--line-strong); color:var(--navy); background:#fff; }
+  .btn-ghost:hover{ border-color:var(--navy); }
+  .btn-block{ width:100%; justify-content:center; padding:15px; font-size:0.96rem; }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; padding:96px 0 80px; border-bottom:1px solid var(--line); background:
+    linear-gradient(180deg, #ffffff 0%, var(--bg-alt) 100%); }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:12px;
+    margin-bottom:24px; font-weight:500;
+  }
+  .eyebrow::before{ content:''; width:26px; height:2px; background:var(--red); }
+  h1{
+    font-weight:700; font-size:clamp(2.3rem, 5vw, 3.6rem); line-height:1.12;
+    letter-spacing:-0.01em; max-width:16ch; color:var(--navy);
+  }
+  h1 span{ color:var(--red); }
+  .hero-sub{ margin-top:24px; max-width:52ch; font-size:1.08rem; color:var(--ink-dim); }
+  .hero-actions{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; }
+
+  .hero-meta{
+    margin-top:64px; display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+    max-width:640px; border-top:1px solid var(--line); padding-top:24px;
+  }
+  .hero-meta .num{ font-family:'Poppins', sans-serif; font-weight:600; font-size:1.2rem; color:var(--navy); }
+  .hero-meta .lbl{ font-size:0.74rem; color:var(--ink-faint); letter-spacing:0.04em; text-transform:uppercase; margin-top:4px; }
+
+  /* ---------- section shared ---------- */
+  section{ padding:88px 0; }
+  .section-head{ margin-bottom:48px; max-width:640px; }
+  .section-head .eyebrow{ margin-bottom:16px; }
+  .section-head h2{ font-weight:700; font-size:clamp(1.7rem, 3vw, 2.3rem); color:var(--navy); }
+  .section-head p{ margin-top:14px; color:var(--ink-dim); max-width:56ch; }
+
+  /* ---------- models ---------- */
+  .models{ border-bottom:1px solid var(--line); background:var(--bg-alt); }
+  .model-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+  }
+  .model-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    overflow:hidden; transition:box-shadow .25s, transform .25s;
+    display:flex; flex-direction:column;
+  }
+  .model-card:hover{ box-shadow:0 12px 28px rgba(20,34,53,0.08); transform:translateY(-2px); }
+  .model-art{
+    height:150px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  }
+  .model-art svg{ width:78%; height:auto; color:#fff; }
+  .model-art.accent svg{ color:#f3d8d6; }
+  .model-body{ padding:26px 24px 28px; flex:1; display:flex; flex-direction:column; }
+  .model-tag{ font-family:'JetBrains Mono', monospace; font-size:0.7rem; color:var(--red); letter-spacing:0.06em; text-transform:uppercase; font-weight:500; }
+  .model-card h3{ font-weight:600; font-size:1.4rem; margin-top:8px; color:var(--navy); }
+  .model-card p{ color:var(--ink-dim); font-size:0.92rem; margin-top:10px; flex:1; }
+  .model-specs{
+    display:flex; gap:14px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size:0.74rem; color:var(--ink-faint); flex-wrap:wrap;
+  }
+  .model-specs span{ color:var(--navy); }
+  .model-book{
+    margin-top:18px; font-size:0.86rem; font-weight:600; color:var(--red);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .model-book svg{ width:14px; height:14px; transition:transform .2s; }
+  .model-card:hover .model-book svg{ transform:translateX(3px); }
+
+  /* ---------- why ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:36px; }
+  .why-item{ border-left:3px solid var(--red); padding-left:20px; }
+  .why-item .idx{ font-family:'JetBrains Mono', monospace; font-size:0.76rem; color:var(--ink-faint); }
+  .why-item h3{ font-weight:600; font-size:1.25rem; margin-top:10px; color:var(--navy); }
+  .why-item p{ color:var(--ink-dim); margin-top:8px; font-size:0.93rem; }
+
+  /* ---------- booking ---------- */
+  .booking{ background:var(--navy); color:#fff; }
+  .booking .section-head h2{ color:#fff; }
+  .booking .section-head p{ color:#c3cbd8; }
+  .booking .eyebrow{ color:#ef9a95; }
+  .booking .eyebrow::before{ background:#ef9a95; }
+  .booking-grid{ display:grid; grid-template-columns:1fr 1.05fr; gap:56px; align-items:start; }
+  .booking-points{ display:flex; flex-direction:column; gap:22px; }
+  .booking-point{ display:flex; gap:14px; }
+  .booking-point .ico{
+    width:38px; height:38px; flex-shrink:0; border-radius:6px;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center; color:#ef9a95;
+  }
+  .booking-point .ico svg{ width:18px; height:18px; }
+  .booking-point h4{ font-family:'Poppins', sans-serif; font-weight:600; font-size:1.02rem; }
+  .booking-point p{ color:#c3cbd8; font-size:0.9rem; margin-top:4px; }
+
+  .booking-form{
+    background:#fff; border-radius:10px; padding:34px; color:var(--ink);
+    box-shadow:0 20px 44px rgba(0,0,0,0.28);
+  }
+  .booking-form h3{ font-weight:600; font-size:1.2rem; color:var(--navy); margin-bottom:6px; }
+  .booking-form .form-sub{ font-size:0.86rem; color:var(--ink-dim); margin-bottom:22px; }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-size:0.8rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+  .field input, .field select{
+    width:100%; padding:12px 14px; border:1.5px solid var(--line-strong); border-radius:5px;
+    font-family:'Inter', sans-serif; font-size:0.94rem; color:var(--ink); background:#fff;
+  }
+  .field input:focus, .field select:focus{ border-color:var(--red); outline:none; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-note{ font-size:0.78rem; color:var(--ink-faint); margin-top:12px; text-align:center; }
+
+  /* ---------- visit ---------- */
+  .visit-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:start; }
+  .visit-card{ background:var(--bg-alt); border:1px solid var(--line); border-radius:8px; padding:32px; }
+  .visit-row{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
+  .visit-row:first-child{ border-top:none; padding-top:0; }
+  .visit-row .ico{
+    width:36px; height:36px; flex-shrink:0; border-radius:6px;
+    background:#fff; border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center; color:var(--red);
+  }
+  .visit-row .ico svg{ width:18px; height:18px; }
+  .visit-row .label{ font-family:'JetBrains Mono', monospace; font-size:0.68rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; }
+  .visit-row .val{ margin-top:4px; font-size:1rem; color:var(--navy); }
+  .visit-row .val a{ color:var(--red); font-weight:600; }
+  .visit-row .val a:hover{ color:var(--red-dark); }
+  .map-frame{ border:1px solid var(--line); border-radius:8px; overflow:hidden; height:100%; min-height:380px; }
+  .map-frame iframe{ width:100%; height:100%; min-height:380px; border:0; display:block; }
+
+  /* ---------- footer ---------- */
+  footer{ padding:40px 0; background:var(--navy); color:#c3cbd8; }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:0.84rem; }
+  .foot-row .brand{ font-size:1.05rem; color:#fff; }
+  .foot-row .brand span{ color:#ef9a95; }
+
+  @media (max-width:760px){
+    .topbar-left span:nth-child(2){ display:none; }
+    .topbar-right{ display:none; }
+    .nav-links{ display:none; }
+    .nav-call{ display:none; }
+    .hero{ padding:70px 0 56px; }
+    .hero-meta{ grid-template-columns:1fr 1fr; }
+    .visit-grid, .booking-grid{ grid-template-columns:1fr; }
+    section{ padding:64px 0; }
+    .field-row{ grid-template-columns:1fr; }
+    .booking-form{ padding:26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Wuyan, Pampore, Pulwama, J&amp;K
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        Open all week · 9:30 AM – 7:30 PM
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+        <a href="tel:+916005439515">+91 60054 39515</a>
+      </span>
+    </div>
+    <div class="topbar-right">Authorised Mahindra Showroom</div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="name-highlight">Ranzo</span> <span class="by-farhan">by Farhan</span></div>
+      <div class="nav-links">
+        <a href="#models">Models</a>
+        <a href="#why">Why Ranzo</a>
+        <a href="#booking">Book Test Drive</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-call" href="tel:+916005439515">+91 60054 39515</a>
+        <a class="btn btn-primary" href="#booking">Book Test Drive</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="thread"></div>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Authorised Mahindra Dealership · Wuyan, Pampore</div>
+      <h1>Your trusted Mahindra dealership in <span>Pulwama.</span></h1>
+      <p class="hero-sub">Ranzo by Farhan is an authorised Mahindra showroom based in Wuyan, Pampore. We offer the complete Mahindra SUV range, transparent on-road pricing, easy financing, and reliable after-sales service — all under one roof.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#booking">Book a Test Drive</a>
+        <a class="btn btn-ghost" href="tel:+916005439515">Call 60054 39515</a>
+      </div>
+      <div class="hero-meta">
+        <div>
+          <div class="num">05 Models</div>
+          <div class="lbl">Available on floor</div>
+        </div>
+        <div>
+          <div class="num">Wuyan</div>
+          <div class="lbl">Pampore, Pulwama</div>
+        </div>
+        <div>
+          <div class="num">7 Days</div>
+          <div class="lbl">Showroom open</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="models" id="models">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Line-up</div>
+        <h2>Five Mahindra SUVs, ready to test drive.</h2>
+        <p>Every model below is on display at our Wuyan showroom. Contact us for the current on-road price and financing options in Pulwama district.</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card">
+          <div class="model-art">
+            <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <path d="M8 62 Q8 42 34 40 L58 18 Q70 8 92 8 L128 8 Q148 8 160 22 L182 40 Q192 42 192 56 L192 64 Q192 70 184 70 L14 70 Q8 70 8 62 Z"/>
+              <path d="M60 40 L70 20 L124 20 L152 40 Z" fill="none"/>
+              <circle cx="54" cy="70" r="13" fill="#1d3350"/>
+              <circle cx="150" cy="70" r="13" fill="#1d3350"/>
+            </svg>
+          </div>
+          <div class="model-body">
+            <div class="model-tag">Off-Roader</div>
+            <h3>Thar Roxx</h3>
+            <p>The 5-door Thar — built for mountain climbs and equally at home in daily city driving.</p>
+            <div class="model-specs">4x4 &amp; RWD · 5 Door · <span>Petrol / Diesel</span></div>
+            <a class="model-book" href="#booking">Book a test drive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-art accent">
+            <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <path d="M6 60 Q6 40 32 38 L54 16 Q66 6 90 6 L132 6 Q152 6 164 20 L186 38 Q194 40 194 54 L194 62 Q194 68 186 68 L12 68 Q6 68 6 60 Z"/>
+              <path d="M58 38 L68 18 L124 18 L156 38 Z"/>
+              <circle cx="52" cy="68" r="13" fill="#1d3350"/>
+              <circle cx="152" cy="68" r="13" fill="#1d3350"/>
+            </svg>
+          </div>
+          <div class="model-body">
+            <div class="model-tag">Flagship SUV</div>
+            <h3>Scorpio-N</h3>
+            <p>Command seating and a powerful diesel engine — a favourite for long highway drives.</p>
+            <div class="model-specs">7 Seater · 4x4 Option · <span>Diesel / Petrol</span></div>
+            <a class="model-book" href="#booking">Book a test drive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-art">
+            <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <path d="M6 58 Q6 40 30 38 L52 18 Q64 8 88 8 L134 8 Q154 8 166 22 L188 40 Q196 42 196 54 L196 62 Q196 68 188 68 L12 68 Q6 68 6 58 Z"/>
+              <path d="M56 38 L66 20 L128 20 L160 38 Z"/>
+              <circle cx="50" cy="68" r="13" fill="#1d3350"/>
+              <circle cx="154" cy="68" r="13" fill="#1d3350"/>
+            </svg>
+          </div>
+          <div class="model-body">
+            <div class="model-tag">Premium SUV</div>
+            <h3>XUV700</h3>
+            <p>ADAS safety features, a panoramic sunroof, and a spacious cabin for family journeys.</p>
+            <div class="model-specs">5 / 7 Seater · ADAS · <span>Diesel / Petrol</span></div>
+            <a class="model-book" href="#booking">Book a test drive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-art accent">
+            <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <path d="M10 56 Q10 40 32 38 L50 20 Q60 12 82 12 L120 12 Q138 12 148 24 L172 38 Q188 40 188 52 L188 60 Q188 66 180 66 L18 66 Q10 66 10 56 Z"/>
+              <path d="M54 38 L62 22 L114 22 L142 38 Z"/>
+              <circle cx="48" cy="66" r="12" fill="#1d3350"/>
+              <circle cx="146" cy="66" r="12" fill="#1d3350"/>
+            </svg>
+          </div>
+          <div class="model-body">
+            <div class="model-tag">Compact SUV</div>
+            <h3>XUV 3XO</h3>
+            <p>Compact enough for narrow lanes, quick enough to enjoy on the open highway.</p>
+            <div class="model-specs">5 Seater · Turbo Petrol · <span>Compact</span></div>
+            <a class="model-book" href="#booking">Book a test drive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-art">
+            <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <path d="M6 60 Q6 42 28 40 L48 20 Q58 10 82 10 L136 10 Q156 10 168 24 L190 40 Q196 42 196 54 L196 62 Q196 68 188 68 L12 68 Q6 68 6 60 Z"/>
+              <path d="M52 40 L60 22 L130 22 L162 40 Z"/>
+              <circle cx="50" cy="68" r="13" fill="#1d3350"/>
+              <circle cx="152" cy="68" r="13" fill="#1d3350"/>
+            </svg>
+          </div>
+          <div class="model-body">
+            <div class="model-tag">Workhorse</div>
+            <h3>Bolero Neo</h3>
+            <p>Ladder-frame durability for orchard and farm transport, built for rough terrain daily use.</p>
+            <div class="model-specs">7 Seater · High Ground Clearance · <span>Diesel</span></div>
+            <a class="model-book" href="#booking">Book a test drive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Why Ranzo</div>
+        <h2>A dealership built on local trust.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="idx">Local</div>
+          <h3>Pulwama's own Mahindra showroom</h3>
+          <p>No trip to Srinagar required — the full Mahindra range, test drives, and paperwork, handled right here in Wuyan.</p>
+        </div>
+        <div class="why-item">
+          <div class="idx">Transparent</div>
+          <h3>Clear, upfront pricing</h3>
+          <p>Straightforward on-road quotes for Pulwama registration, with financing and exchange options explained clearly before you commit.</p>
+        </div>
+        <div class="why-item">
+          <div class="idx">Reliable</div>
+          <h3>Service that continues after sale</h3>
+          <p>Genuine parts and scheduled maintenance support long after you drive off the showroom floor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="wrap">
+      <div class="booking-grid">
+        <div>
+          <div class="section-head" style="margin-bottom:36px;">
+            <div class="eyebrow">Book a Test Drive</div>
+            <h2>Experience your Mahindra before you buy.</h2>
+            <p>Fill in your details and we'll confirm your slot over WhatsApp or phone — usually within a few hours.</p>
+          </div>
+          <div class="booking-points">
+            <div class="booking-point">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div>
+                <h4>No obligation</h4>
+                <p>A test drive is free and doesn't commit you to a purchase.</p>
+              </div>
+            </div>
+            <div class="booking-point">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+              <div>
+                <h4>Flexible scheduling</h4>
+                <p>Choose a date that works for you — we're open all seven days.</p>
+              </div>
+            </div>
+            <div class="booking-point">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></div>
+              <div>
+                <h4>Direct confirmation</h4>
+                <p>Prefer to talk it through? Call us directly at <a href="tel:+916005439515" style="color:#ef9a95;">+91 60054 39515</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="booking-form" id="booking-form">
+          <h3>Book Your Test Drive</h3>
+          <div class="form-sub">We'll reach out on WhatsApp to confirm your slot.</div>
+
+          <div class="field">
+            <label for="bk-name">Full name</label>
+            <input type="text" id="bk-name" placeholder="Your name" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="bk-phone">Phone number</label>
+              <input type="tel" id="bk-phone" placeholder="9876543210" required>
+            </div>
+            <div class="field">
+              <label for="bk-date">Preferred date</label>
+              <input type="date" id="bk-date">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="bk-model">Model you'd like to test drive</label>
+            <select id="bk-model">
+              <option>Thar Roxx</option>
+              <option>Scorpio-N</option>
+              <option>XUV700</option>
+              <option>XUV 3XO</option>
+              <option>Bolero Neo</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Send Booking Request</button>
+          <div class="form-note">Opens WhatsApp with your details pre-filled — nothing is sent automatically.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Visit the Showroom</div>
+        <h2>Find us in Wuyan.</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+
+          <div class="visit-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="label">Address</div>
+              <div class="val">Ranzo by Farhan, Wuyan, Pampore, Pulwama, Jammu &amp; Kashmir</div>
+            </div>
+          </div>
+
+          <div class="visit-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+            </div>
+            <div>
+              <div class="label">Phone</div>
+              <div class="val"><a href="tel:+916005439515">+91 60054 39515</a></div>
+            </div>
+          </div>
+
+          <div class="visit-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+            </div>
+            <div>
+              <div class="label">Showroom Hours</div>
+              <div class="val">Open all week · 9:30 AM – 7:30 PM</div>
+            </div>
+          </div>
+
+          <div class="visit-row">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l18-9-9 18-2-7-7-2z"/></svg>
+            </div>
+            <div>
+              <div class="label">Test Drives &amp; Enquiries</div>
+              <div class="val">Walk in, or <a href="#booking">book online</a> to reserve a slot</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            title="Map showing Wuyan, Pampore, Pulwama"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=74.86%2C33.95%2C75.02%2C34.05&layer=mapnik&marker=34.00%2C74.94"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="brand"><span class="name-highlight">Ranzo</span> <span class="by-farhan" style="color:#c3cbd8;">by Farhan</span></div>
+      <div>Wuyan, Pampore, Pulwama, J&amp;K · +91 60054 39515</div>
+      <div>Mahindra is a registered trademark of Mahindra &amp; Mahindra Ltd.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('booking-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('bk-name').value.trim();
+    var phone = document.getElementById('bk-phone').value.trim();
+    var model = document.getElementById('bk-model').value;
+    var date = document.getElementById('bk-date').value;
+
+    if(!name || !phone){
+      alert('Please enter your name and phone number.');
+      return;
+    }
+
+    var message = 'Hi Ranzo by Farhan, I would like to book a test drive.\n' +
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Model: ' + model + '\n' +
+      'Preferred date: ' + (date || 'Flexible');
+
+    var url = 'https://wa.me/916005439515?text=' + encodeURIComponent(message);
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
